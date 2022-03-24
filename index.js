@@ -1,0 +1,12 @@
+const express = require('express')
+const app = express()
+const cors = require('cors')
+require('./model/db')
+app.use(express.json())
+app.use(cors())
+const userRoute = require('./route/userRoute')
+app.use('/auth',userRoute)
+app.get('/',(req,res)=>{
+    res.json({error:false})
+})
+app.listen(5000,()=>console.log('server running at port 5000'))

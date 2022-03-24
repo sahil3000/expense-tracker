@@ -1,0 +1,13 @@
+==> signup
+127.0.0.1:5000/auth/signup
+{
+    "email":"test3@test.com",
+    "name":"test",
+    "gender":"m",
+    "password":"test@123",
+    "contactNo":"123",
+    "address":"Jammu",
+    "city":"Jammu",
+    "pinCode":"123456",
+    "username":"test3"
+}

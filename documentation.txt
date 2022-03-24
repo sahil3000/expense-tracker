@@ -1,0 +1,66 @@
+=============== Expense Tracker =======================
+
+===> Functionality
+=> Login
+=> Signup
+=> Logout
+=> view profile
+=> update profile
+=> Add Categories
+=> view Categories
+=> update Categories
+=> Delete Categories
+=> Expense (CRUD)
+=> Income (CRUD))
+=> Event (CRUD)
+=> Get Notification (CRUD)
+=> export csv
+=> import csv
+=> Report
+
+
+
+
+===> Database
+=> Users
+- id : string
+- name : string
+- email : string
+- username : string
+- password : string
+- isActive : boolean
+- isDeleted : boolean
+- createdAt : datetime 
+- updatedAt : datetime
+- secretCode : string
+- gender: 'String',
+- contactNo : 'String'
+- address : string
+- city: string
+- pinCode: string
+
+=> Categories
+- id : string
+- type : string
+- title : string
+- isDefault : boolean
+- userId : foreignKey -> multiValue
+- createdAt : datetime 
+- updatedAt : datetime
+
+=> Transactions
+- id : string
+- categoryId : ForeignKey
+- amount : string
+- createdAt : datetime 
+- updatedAt : datetime
+
+=> Events
+- id: string
+- type : string
+- detail : string
+- amount : string
+- date: date
+- createdAt : datetime 
+- updatedAt : datetime 
+- isRead : boolean 
