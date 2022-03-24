@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 const Users = mongoose.model('Users')
 const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken');
+const { JWT_SECRET_KEY } = require('./utils');
 
 const signup =(req,res)=>{
     Users.findOne({$or:[{'email': req.body.email}, {'username': req.body.username}]},(err,response)=>{
@@ -28,6 +30,7 @@ const signup =(req,res)=>{
                     res.status(400).json({error:true,msg: 'error',body:err})
                 }
                 else if(resp){
+                    
                     res.status(201).json({ error:false,msg:"Successfully created",body:resp})
                 }
                 else{
@@ -37,4 +40,42 @@ const signup =(req,res)=>{
         }
     })
 }
-module.exports = {signup}
+
+const login =(req,res)=>{
+    Users.findOne({email:req.body.email},(err,doc)=>{
+        if(err){
+            console.log(err);
+            res.status(500).send({msg:"All field are field",error:true,body:[]});
+        }
+        else if(doc){
+            bcrypt.compare(req.body.password,doc.password,(err,passwordValid)=>{
+                if(err){
+                    console.log(err);
+                    res.status(500).send({msg:"All field are field",error:true,body:[]});
+                }
+                else if(passwordValid){
+                    const token = jwt.sign(doc.email, JWT_SECRET_KEY);
+                    const response = doc
+                    response.password=''
+                    res.status(200).send({
+                        msg:"success",
+                        error:false,
+                        body:response,
+                        token:token
+                    });
+                }
+                else{
+                    console.log("User or password is wrong1")
+                    res.status(401).send({msg:"email or password is wrong",error:true,body:[]});
+                }
+            })
+        }
+        else{
+            console.log("User or password is wrong")
+            res.status(401).send({msg:"email or password is wrong",error:true,body:[]});
+        }
+    });
+}
+
+
+module.exports = {signup,login}
