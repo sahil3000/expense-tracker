@@ -10,3 +10,5 @@ mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true},(err
     console.log("Successfully Established Connection with MongoDB");
 });
 require('./userModel')
+require('./categoryModel')
+require('./transactionModel')

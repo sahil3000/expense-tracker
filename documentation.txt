@@ -1,8 +1,8 @@
 =============== Expense Tracker =======================
 
 ===> Functionality
-=> Login
-=> Signup
+=> Login - done api
+=> Signup - done api
 => Logout
 => view profile
 => update profile

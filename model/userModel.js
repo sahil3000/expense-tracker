@@ -53,7 +53,7 @@ const userSchema = new mongoose.Schema({
     },
     pinCode:{
         type:String,
-        pinCode:"pinCode is mandatory field"
+        required:"pinCode is mandatory field"
     },
     lastLoginDate:  { type : Date, default: Date.now },
     createdAt:{ type : Date, default: Date.now },

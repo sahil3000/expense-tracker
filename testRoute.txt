@@ -1,5 +1,6 @@
 ==> signup
 127.0.0.1:5000/auth/signup
+method : POST
 {
     "email":"test3@test.com",
     "name":"test",
@@ -11,3 +12,46 @@
     "pinCode":"123456",
     "username":"test3"
 }
+
+=> add category
+localhost:5000/category/add
+method : POST
+{
+    "type":"expense",
+    "title":"telephone bill"
+}
+
+=> get all categories
+method : GET
+localhost:5000/category/
+
+=> get category 
+method : GET
+localhost:5000/category/:categoryId
+
+=> update category 
+method : PUT
+localhost:5000/category/
+{
+    "type":"expense",
+    "title":"telephone bill",
+    "categoryId":"categoryId"
+}
+
+=> delete category 
+method : Delete
+localhost:5000/category/:categoryId
+
+
+------------------------------------- Transaction ------------------------
+=> new Transaction
+localhost:5000/transaction/new
+method : POST
+{
+    "categoryId":"62407225580944d0049ebca9",
+    "amount":"700"
+}
+
+=> get all transaction
+localhost:5000/transaction/
+method : GET
