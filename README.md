@@ -1,5 +1,5 @@
-# expense-tracker
-This Project for Learning CRUD operation in node express js. Learning about middleware and connecting with mongoDB
+# Expense Tracker
+This Project for Learning CRUD operation in node express js. Learning about middleware, jtw token and mongoDB.
 
 # Clone code
 git clone https://github.com/sahil3000/expense-tracker.git
